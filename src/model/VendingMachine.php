@@ -45,7 +45,7 @@ class VendingMachine
     private function setItemValues(string $name, int $count): void
     {
         if ($count < 0) {
-            throw new NotAllowedItemQuantity();
+            throw new NotAllowedItemQuantityException();
         }
 
         $this->checkIfItemIsAllowed($name);

@@ -1,5 +1,5 @@
 <?php
 
-class ItemNotAllowedException extends DomainException
+class ItemNotAllowedException extends \DomainException
 {
 }

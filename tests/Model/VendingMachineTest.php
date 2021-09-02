@@ -3,7 +3,7 @@
 namespace Gonsandia\Tests\Model;
 
 use Gonsandia\Model\Coin;
-use Gonsandia\Model\NotAllowedItemQuantity;
+use Gonsandia\Model\NotAllowedItemQuantityException;
 use Gonsandia\Model\NotEnoughChangeException;
 use Gonsandia\Model\Product;
 use Gonsandia\Model\ProductNotAvailableException;
@@ -51,7 +51,7 @@ class VendingMachineTest extends TestCase
     {
         $vendingMachine = new VendingMachine();
 
-        $this->expectException(NotAllowedItemQuantity::class);
+        $this->expectException(NotAllowedItemQuantityException::class);
 
         $vendingMachine->setProducts(new Product('JUICE'), -1);
     }
@@ -60,7 +60,7 @@ class VendingMachineTest extends TestCase
     {
         $vendingMachine = new VendingMachine();
 
-        $this->expectException(NotAllowedItemQuantity::class);
+        $this->expectException(NotAllowedItemQuantityException::class);
 
         $vendingMachine->setCoins(new Coin(1), -1);
     }
