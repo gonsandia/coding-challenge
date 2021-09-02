@@ -71,4 +71,14 @@ class Product
     {
         return ($this->value === $product->value) && ($this->name === $product->name);
     }
+
+    public function getChangeValue(float $payment): float
+    {
+       $total = ($payment - $this->value);
+
+       if ($total < 0) {
+           throw new NotEnoughMoneyException();
+       }
+       return $total;
+    }
 }
