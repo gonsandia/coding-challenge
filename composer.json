@@ -1,26 +1,30 @@
 {
-  "name": "gonsandia/coding-challenge",
-  "description": "Vending machine coding challenge",
-  "minimum-stability": "stable",
-  "license": "proprietary",
-  "authors": [
-    {
-      "name": "Gonzalo Santos",
-      "email": "gonzalosantos@gmail.com"
+    "name": "gonsandia/coding-challenge",
+    "description": "Vending machine coding challenge",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Gonzalo Santos",
+            "email": "gonzalosantos@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.0",
+        "phpunit/phpunit": "^9.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Gonsandia\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Gonsandia\\Tests\\": "tests/"
+        }
+    },
+    "require": {
+        "php": "^8.0",
+        "ext-readline": "*"
     }
-  ],
-  "require-dev": {
-    "friendsofphp/php-cs-fixer": "^3.0",
-    "phpunit/phpunit": "^9.5"
-  },
-  "autoload": {
-      "psr-4": {
-          "Gonsandia\\": "src/"
-      }
-  },
-  "autoload-dev": {
-      "psr-4": {
-          "Gonsandia\\Tests\\": "tests/"
-      }
-  }
 }
