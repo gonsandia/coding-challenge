@@ -14,13 +14,13 @@
     "phpunit/phpunit": "^9.5"
   },
   "autoload": {
-    "psr-4": {
-      "Gonsandia\\Tests\\": "tests/"
-    }
+      "psr-4": {
+          "Gonsandia\\": "src/"
+      }
   },
   "autoload-dev": {
-    "psr-4": {
-      "Gonsandia\\": "src/"
-    }
+      "psr-4": {
+          "Gonsandia\\Tests\\": "tests/"
+      }
   }
 }
