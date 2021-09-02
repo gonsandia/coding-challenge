@@ -23,6 +23,13 @@ class Coin
         self::DOLLAR_VALUE
     ];
 
+    public const VALID_COIN_TYPES = [
+        self::NICKEL_TYPE,
+        self::DIME_TYPE,
+        self::QUARTER_TYPE,
+        self::DOLLAR_TYPE
+    ];
+
     public const COIN_VALUES = [
         self::NICKEL_TYPE => self::NICKEL_VALUE,
         self::DIME_TYPE => self::DIME_VALUE,
@@ -62,8 +69,6 @@ class Coin
     private function checkIsValueIsAllowed(float $value): void
     {
         if (!in_array($value, self::VALID_COIN_VALUES, true)) {
-            var_dump($value);
-            var_dump(self::VALID_COIN_VALUES);
             throw new CoinValueNotAllowedException();
         }
     }
