@@ -54,7 +54,7 @@ class ProductTest extends TestCase
         $product3 =  new Product($value3);
 
         $this->assertEquals(0.35, $product1->getChangeValue(1));
-        $this->assertEquals(0.5,$product2->getChangeValue(2));
+        $this->assertEquals(0.5, $product2->getChangeValue(2));
         $this->assertEquals(0, $product3->getChangeValue(1));
     }
 }

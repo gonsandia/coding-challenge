@@ -74,11 +74,11 @@ class Product
 
     public function getChangeValue(float $payment): float
     {
-       $total = ($payment - $this->value);
+        $total = round($payment - $this->value, 2);
 
-       if ($total < 0) {
-           throw new NotEnoughMoneyException();
-       }
-       return $total;
+        if ($total < 0) {
+            throw new NotEnoughMoneyException();
+        }
+        return $total;
     }
 }
