@@ -55,7 +55,7 @@ Example 3: Buy Water without exact change
 * Commit from the very beginning and commit often. We value the possibility to review your git log.
 
 # Instructions on how to run your solution
-It is a php CLI application, you can run it with docker. At the startup it shows the available commands
+It is a php CLI application, you can run it with docker. At the startup it shows the available commands.
 ## With docker
 Only run the next commands to build the image and run the container:
 
