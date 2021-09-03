@@ -58,10 +58,8 @@ Example 3: Buy Water without exact change
 ### build and run
 
     docker build -t vending .
-    docker run --rm vending
+    docker run -v "$(pwd):/var/www" -it --rm vending
 
-### run bash with volume mounted
-    docker run -v "$(pwd):/var/www" -it --rm vending bash
 
 
 

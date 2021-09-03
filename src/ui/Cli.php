@@ -2,8 +2,6 @@
 
 namespace Gonsandia\Ui;
 
-require_once dirname(__FILE__, 3) . '/vendor/autoload.php';
-
 use Gonsandia\Model\Coin;
 use Gonsandia\Model\CoinValueNotAllowedException;
 use Gonsandia\Model\NotAllowedItemQuantityException;
@@ -20,7 +18,7 @@ class Cli
     public const SERVICE_COMMAND = 'SERVICE';
     public const RETURN_COMMAND = 'RETURN-COIN';
     public const INSERT_COMMAND = [1, 0.25, 0.1, 0.05];
-    public const SHUTDOWN_COMMAND = 'OFF';
+    public const SHUTDOWN_COMMAND = 'EXIT';
     public const GET_SODA_COMMAND = 'GET-SODA';
     public const GET_WATER_COMMAND = 'GET-WATER';
     public const GET_JUICE_COMMAND = 'GET-JUICE';
@@ -152,10 +150,10 @@ class Cli
     function showHelp(): void
     {
         echo str_repeat('*', 100) . PHP_EOL;
-        echo 'Command: ' . PHP_EOL;
-        echo str_pad('Purchase WATER (0.65 $):', 75) . self::GET_WATER_COMMAND . PHP_EOL;
-        echo str_pad('Purchase JUICE (1 $):', 75) . self::GET_JUICE_COMMAND . PHP_EOL;
-        echo str_pad('Purchase SODA (1.5 $):', 75) . self::GET_SODA_COMMAND . PHP_EOL;
+        echo 'Available Commands: ' . PHP_EOL;
+        echo str_pad('Purchase WATER (0.65$):', 75) . self::GET_WATER_COMMAND . PHP_EOL;
+        echo str_pad('Purchase JUICE (1$):', 75) . self::GET_JUICE_COMMAND . PHP_EOL;
+        echo str_pad('Purchase SODA (1.5$):', 75) . self::GET_SODA_COMMAND . PHP_EOL;
         echo str_pad('Insert coins:', 75) . "(" . implode(', ', self::INSERT_COMMAND) . ")" . PHP_EOL;
         echo str_pad('Return coins:', 75) . self::RETURN_COMMAND . PHP_EOL;
         echo str_pad('Service:', 75) . self::SERVICE_COMMAND . PHP_EOL;
@@ -194,6 +192,3 @@ class Cli
         }
     }
 }
-
-$cli = new Cli();
-$cli->run();

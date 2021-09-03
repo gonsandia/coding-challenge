@@ -8,13 +8,7 @@ COPY ./.docker/php/xdebug.ini /usr/local/etc/php/conf.d/docker-php-ext-xdebug.in
 
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY ./ /var/www
-
 WORKDIR /var/www
 
-RUN composer dump-autoload
-
-WORKDIR /var/www/src/ui
-
-CMD [ "php", "Cli.php" ]
+ENTRYPOINT ["/var/www/.docker/entrypoint.sh"]
 
