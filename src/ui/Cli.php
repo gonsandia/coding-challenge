@@ -101,14 +101,18 @@ class Cli
 
         try {
             $this->vendingMachine->setProducts(new Product($name), $stock);
+            echo "$stock $name on stock" . PHP_EOL;
         } catch (ProductValueNotAllowedException | ItemNotAllowedException) {
             echo 'INVALID PRODUCT' . PHP_EOL;
         } catch (NotAllowedItemQuantityException) {
             echo 'INVALID AMOUNT' . PHP_EOL;
         }
 
-        $addMore = readline("Add more (Y/N): ");
-        if ($addMore === 'Y') {
+        $input = readline("Add more (Y/N): ");
+
+        $input = strtoupper(trim($input));
+
+        if ($input === 'Y') {
             $this->addNewProducts();
         }
     }
@@ -121,14 +125,18 @@ class Cli
 
         try {
             $this->vendingMachine->setCoins(new Coin($value), $stock);
+            echo "$stock coin of $value for change" . PHP_EOL;
         } catch (CoinValueNotAllowedException | ItemNotAllowedException) {
             echo 'INVALID PRODUCT' . PHP_EOL;
         } catch (NotAllowedItemQuantityException) {
             echo 'INVALID AMOUNT' . PHP_EOL;
         }
 
-        $addMore = readline("Add more (Y/N): ");
-        if ($addMore === 'Y') {
+        $input = readline("Add more (Y/N): ");
+
+        $input = strtoupper(trim($input));
+
+        if ($input === 'Y') {
             $this->addCoins();
         }
     }
@@ -136,12 +144,18 @@ class Cli
     private
     function doService(): void
     {
-        $addNewProducts = (readline('Update product stock (Y/N) ? ') === 'Y');
-        if ($addNewProducts) {
+        $addNewProducts = readline('Update product stock (Y/N) ? ');
+
+        $addNewProducts = strtoupper(trim($addNewProducts));
+
+        if ($addNewProducts === 'Y') {
             $this->addNewProducts();
         }
-        $updateChange = (readline('Update coins stock (Y/N) ? ') === 'Y');
-        if ($updateChange) {
+        $updateChange = readline('Update coins stock (Y/N) ? ');
+
+        $updateChange = strtoupper(trim($updateChange));
+
+        if ($updateChange === 'Y') {
             $this->addCoins();
         }
     }
@@ -174,6 +188,7 @@ class Cli
     {
         try {
             $coins = $this->vendingMachine->getProduct(new Product($string));
+            echo $string . PHP_EOL;
             $this->showCoins($coins);
         } catch (ProductNotAvailableException) {
             echo 'PRODUCT NOT AVAILABLE' . PHP_EOL;
