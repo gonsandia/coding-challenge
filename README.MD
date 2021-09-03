@@ -51,15 +51,26 @@ Example 3: Buy Water without exact change
 * The provided solutions needs to be uploaded into a public repository (Github, Gitlab, bitbucket) with a README.MD providing the following information.
     * Instructions on how to run your solution
     * Requirements
-* Please make sure the name **Holded** are not referenced in any place in your code.
+* Please make sure the name ********** are not referenced in any place in your code.
 * Commit from the very beginning and commit often. We value the possibility to review your git log.
 
-# Docker
-### build and run
+# Instructions on how to run your solution
+It is a php CLI application, you can run it with docker
+## With docker
+Only run the next commands to build the image and run the container:
 
     docker build -t vending .
     docker run -v "$(pwd):/var/www" -it --rm vending
+## Without docker
+Need to create autoload for php classes and run the main file start.php
 
+    composer dump-autoload
+    php src/start.php
 
+# Requirements
+
+    * php 8
+    * php-extension-readline
+    * docker (optional  for easy run)
 
 
